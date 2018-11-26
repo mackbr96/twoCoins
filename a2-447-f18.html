@@ -1,0 +1,101 @@
+<head><title>CS447</title>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body bgcolor=#FBFBFB>
+<body>
+
+<H2><font color=navy>Assignment 2</font></H2>
+<H2><font color=gray>A Tale of Two Coins</font></H2>
+<b>Out</b>: October 2, 2018.
+<br>
+
+<hr>
+
+Alice has two coins that she can flip at any time. The two coins have distinct probabilities
+of showing Heads/Tails. 
+Bob observes the outcomes of Alice's coin tosses but unfortunately he does not which coin Alice 
+is tossing at any time (since both coins look alike). We assume Alice knows which coin is which
+at all times.
+
+<p>
+
+But Bob knows Alice's tendencies in choosing the coins. For example, suppose the coins
+are called coins X and Y, respectively. If Alice tosses coin X in the current step, then
+in the next step she will toss X again with probability 0.75 and will toss coin Y otherwise 
+(with probability 0.25).
+On the other hand, if she tosses coin Y, she will choose to toss coin X in the next step with
+probability 0.9 and toss coin Y again with probability only 0.1. This can be represented as a
+probability transition matrix:
+<pre>
+0.75  0.9
+0.25  0.1
+</pre> 
+where the first row and column is indexed by X and the second row/column is indexed by Y.
+
+<p>
+
+Bob also knows the "biases" of the two coins (although he can not tell them apart). 
+For example, coin X shows Heads (H) or Tails (T) with equal probabilities 0.4 and 0.6, respectively.
+But coin Y shows Heads (H) with probability 0.8 and shows Tails (T) with probability 0.2.
+This can be represented as two sequences (or vectors):
+<pre>
+0.4  0.8
+</pre>
+Note: we need only record the probabilities of showing Heads for each coin.
+
+<p>
+
+Now, suppose Bob observed a sequence of tosses, say:
+<pre>
+HTHTHHHHTHTTHTHTHHTHHHHTHHTHTHHTTTH
+</pre>
+His goal is to determine how Alice had chosen her sequence of coins. Or rather find the
+sequence of choices made by Alice that is most likely. For example,
+<pre>
+XYXYXYXXXYXYXYYYYXYXYXYXYXYXYYYYXXX
+</pre>
+is a particular sequence of choices that could have been made by Alice (but this might
+not be the most likely sequence).
+
+<hr>
+
+Write a program that takes three input text files. The first file contains the probability
+transition matrix of Alice's tendencies. The second file contains the biases (probability of
+showing Heads) of the coins. The third file contains the sequence of outcomes from Alice's
+coin tosses. 
+
+<p>
+
+The program should output a single text file containing the most likely sequence
+of coins that Alice had used in producing the outcome sequence of tosses.
+
+<p>
+
+For simplicity, use 1 to represent H and 0 to represent T. Also, use integers to represent
+the coins: say 0 for X and 1 for Y.
+
+<p>
+
+<strong>Note:</strong> Some examples of the input files can be found 
+<a href="A2-HMM/">here</a>.
+
+<hr>
+
+<h2><font color=red>Extensions</font></h2>
+
+<ol>
+<li>Extend your program so it can handle more general output alphabets.
+<li>Compute the probability of an observation sequence.
+<li>Compute the most likely state at any step in the observation sequence.
+</ol>
+
+<hr>
+
+<h2>What to Hand-in</h2>
+
+Submit via email a single compressed file that contains your <b>source file(s)</b>.
+
+
+
+</body>
+
